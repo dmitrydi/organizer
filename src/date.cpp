@@ -1,11 +1,6 @@
-/*
- * date.cpp
- *
- *  Created on: 28 мая 2020 г.
- *      Author: Dmitry_Di
- */
-
 #include "date.h"
+
+using namespace std;
 
 int Date::GetYear() const {
   return _year;

@@ -4,8 +4,6 @@
 #include <exception>
 #include <iomanip>
 
-using namespace std;
-
 class Date {
 public:
   Date(const int year, const int month, const int day) :
@@ -19,9 +17,9 @@ private:
   const int _year, _month, _day;
 };
 
-Date ParseDate(istream& is);
+Date ParseDate(std::istream& is);
 
-ostream& operator <<(ostream& os, const Date& date);
+std::ostream& operator <<(std::ostream& os, const Date& date);
 bool operator >(const Date& lhs, const Date& rhs);
 bool operator <(const Date& lhs, const Date& rhs);
 bool operator !=(const Date& lhs, const Date& rhs);

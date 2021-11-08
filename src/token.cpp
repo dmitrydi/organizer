@@ -1,10 +1,3 @@
-/*
- * token.cpp
- *
- *  Created on: 28 мая 2020 г.
- *      Author: Dmitry_Di
- */
-
 #include "token.h"
 
 #include <stdexcept>
@@ -92,5 +85,14 @@ vector<Token> Tokenize(istream& cl) {
   return tokens;
 }
 
+string ParseEvent(istream& is) {
+  string input;
+  getline(is, input);
+  auto b = input.begin();
+  while(*b == ' ') {
+    b++;
+  }
+  return string(b, input.end());
+}
 
 

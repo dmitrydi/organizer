@@ -4,14 +4,12 @@
 #include "date.h"
 #include "condition_parser.h"
 #include "node.h"
+#include "token.h"
 #include "test_runner.h"
-
-using namespace std;
-
-string ParseEvent(istream& is);
 
 void TestParseDate();
 void TestAddEvents();
 void TestFindIf();
+void TestAll();
 
 

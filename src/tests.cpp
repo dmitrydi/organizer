@@ -1,11 +1,6 @@
-/*
- * tests.cpp
- *
- *  Created on: 3 θών. 2020 γ.
- *      Author: Dmitry_Di
- */
-
 #include "tests.h"
+
+using namespace std;
 
 void TestParseDate() {
   string line = "2017-01-01 2017-1-1 Something";
@@ -96,5 +91,32 @@ void TestFindIf() {
     };
     AssertEqual(result, expected, "Test 1");
   }
+}
+
+void TestParseEvent() {
+  {
+    istringstream is("event");
+    AssertEqual(ParseEvent(is), "event", "Parse event without leading spaces");
+  }
+  {
+    istringstream is("   sport event ");
+    AssertEqual(ParseEvent(is), "sport event ", "Parse event with leading spaces");
+  }
+  {
+    istringstream is("  first event  \n  second event");
+    vector<string> events;
+    events.push_back(ParseEvent(is));
+    events.push_back(ParseEvent(is));
+    AssertEqual(events, vector<string>{"first event  ", "second event"}, "Parse multiple events");
+  }
+}
+
+void TestAll() {
+  TestRunner tr;
+  tr.RunTest(TestParseEvent, "TestParseEvent");
+  tr.RunTest(TestParseCondition, "TestParseCondition");
+  tr.RunTest(TestParseDate, "Test ParseDate");
+  tr.RunTest(TestAddEvents, "Test Add in database");
+  tr.RunTest(TestFindIf, "Tst FindIf");
 }
 
