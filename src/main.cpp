@@ -1,10 +1,3 @@
-/*
- * main.cpp
- *
- *  Created on: 28 мая 2020 г.
- *      Author: Dmitry_Di
- */
-
 #include "database.h"
 #include "date.h"
 #include "condition_parser.h"
@@ -18,7 +11,6 @@
 using namespace std;
 
 string ParseEvent(istream& is) {
-  // Реализуйте эту функцию
   string input;
   getline(is, input);
   auto b = input.begin();

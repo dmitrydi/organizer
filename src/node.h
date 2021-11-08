@@ -24,6 +24,7 @@ enum class LogicalOperation {
 class Node {
 public:
   virtual bool Evaluate(const Date& date, const string& event) const = 0;
+  virtual ~Node() = default;
 };
 
 class EmptyNode: public Node {
@@ -56,6 +57,7 @@ public:
                        shared_ptr<const Node> rhs);
   bool Evaluate(const Date& date, const string& event) const override;
 private:
-  shared_ptr<const Node> lhs_, rhs_;
   const LogicalOperation op_;
+  shared_ptr<const Node> lhs_, rhs_;
+
 };
